@@ -1,5 +1,6 @@
 package fr.univ_orleans.iut45.menus;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.io.Reader;
 
@@ -39,6 +40,47 @@ class Menu {
             return false;
         return true;
     }
+    public boolean contientDeLaViande() {
+        for (int i=0 ; i < this.plats_principaux.size() ; i++) {
+            if (this.plats_principaux.get(i).contientViande()) {}
+                return true;
+
+        }
+        return false;
+    }
 
 
+    public boolean contientPasDAlergene(String alergene) {
+        for (int i=0 ; i < this.plats_principaux.size() ; i++) {
+                if (this.plats_principaux.get(i).getListAlergene().contains(alergene))
+                    return false;
+        }
+        for (int j=0 ; j < this.plats_principaux.size() ; j++) {
+            if (this.plats_principaux.get(j).getListAlergene().contains(alergene))
+                return false;
+        }
+        for (int k=0 ; k < this.plats_principaux.size() ; k++) {
+            if (this.plats_principaux.get(k).getListAlergene().contains(alergene))
+                return false;
+        }
+        return true;
+
+        }
+
+    public List<String> quelAlergene() {
+        List<String> lesAlergene = new ArrayList<>();
+        for (int i=0 ; i < this.plats_principaux.size() ; i++) {
+            lesAlergene.add(this.plats_principaux.get(i).getListAlergene());
+
+    for (int j=0 ; j < this.plats_principaux.size() ; j++) {
+        lesAlergene.add(this.plats_principaux.get(j).getListAlergene());
+
+    }
+    for (int k=0 ; k < this.plats_principaux.size() ; k++) {
+        lesAlergene.add(this.plats_principaux.get(k).getListAlergene());
+
+    }
+    return lesAlergene;
+
+    }
 }
