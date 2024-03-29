@@ -34,5 +34,11 @@ class Menu {
         Gson gson = new Gson();
         return gson.fromJson(r, Menu.class);
     }
+    public boolean estComplet() {
+        if (this.entrees.size() == 0 || this.plats_principaux.size() == 0 || this.desserts.size() == 0)
+            return false;
+        return true;
+    }
+
 
 }
